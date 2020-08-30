@@ -71,24 +71,28 @@ if (this.value !== questions[currentQuestionIndex].answer){
   // display new time on page
   timerEl.textContent = time ;
   
+  // flash wrong feedback on page for half a second
   feedbackEl.setAttribute("class", "feedback");
   setTimeout(function() {
   feedbackEl.setAttribute("class", "feedback hide");
   }, 1000);
-  // flash right/wrong feedback on page for half a second
   feedbackEl.textContent = "Wrong!" ;
   // play "wrong" sound effect
-  function playAudio(){
+  
   sfxWrong.play()
-};  
+  
 }
 // else 
 else { 
-feedbackEl.textContent = "Nice!" ;    
+  // flash right feedback on page for half a second
+  feedbackEl.setAttribute("class", "feedback");
+  setTimeout(function() {
+  feedbackEl.setAttribute("class", "feedback hide");
+  }, 1000);
+  feedbackEl.textContent = "Nice!" ;    
 // play "right" sound effect
-function playAudio() {
-  sfxRight.play;
-}; 
+
+  sfxRight.play(); 
 // move to next question
 currentQuestionIndex++;
 }
